@@ -34,6 +34,16 @@ export default defineConfig({
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, '/api')
 			},
+			'/ws/socket.io': {
+				target: 'http://127.0.0.1:4568',
+				ws: true,  // This enables WebSocket proxying
+				changeOrigin: true
+			},
+			'/ollama': {
+				target: 'http://127.0.0.1:4568',
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/ollama/, '/ollama')
+			}
 		},
 	},
 });
