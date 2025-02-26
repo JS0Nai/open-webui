@@ -1,0 +1,14 @@
+name = "openwebui-worker"
+main = "cloudflare/worker.js"
+compatibility_date = "2025-02-26"
+
+[vars]
+TUNNEL_HOSTNAME = "MacStudio"
+APP_DOMAIN = "openwebui.amodel.org"
+
+[site]
+bucket = "./cloudflare/dist"
+
+# Bindings to connect back to Mac Studio tunnel
+[env.production]
+route = "openwebui.amodel.org/*"
